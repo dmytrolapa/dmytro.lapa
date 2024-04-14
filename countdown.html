@@ -34,6 +34,10 @@
             text-align: center;
         }
 
+        .seconds-number .numbers {
+            color: black; /* Чорний колір для цифр секунд */
+        }
+
         .white {
             position: absolute;
             background: #eeeeee;
@@ -70,7 +74,7 @@
             <div id="hours" class="numbers"> </div>годин</div> 
         <div class="minutes seconds"> 
             <div id="minutes" class="numbers"> </div>хвилин</div> 
-        <div class="seconds seconds"> 
+        <div class="seconds seconds-number"> 
             <div id="seconds" class="numbers"> </div>секунд</div> 
     </div>
 </body>
@@ -88,4 +92,22 @@
         const diff = myDate - today;
 
         // math
-        let days = Math.floor(diff / (1000 * 60 * 60 * 24))
+        let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        // display
+        document.getElementById("days").innerHTML = days;
+        document.getElementById("hours").innerHTML = hours;
+        document.getElementById("minutes").innerHTML = minutes;
+        document.getElementById("seconds").innerHTML = seconds;
+
+        // stop timer if date has passed
+        if (diff < 0) {
+            clearInterval(timer);
+            document.getElementById("timer").innerHTML = "ЗАВЕРШЕНО";
+        }
+    }, 1000); // 1000 milliseconds = 1 second
+</script>
+</html>
