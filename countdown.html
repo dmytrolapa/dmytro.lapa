@@ -1,8 +1,5 @@
-Ось ваш вихідний код з урахуванням змін, щоб всі блоки були кольору, як блок секунд:
-
-```html
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -68,13 +65,13 @@
 <body>
     <div id="timer">
         <div class="days seconds"> 
-            <div id="days" class="numbers"> </div>days</div> 
+            <div id="days" class="numbers"> </div>днів</div> 
         <div class="hours seconds"> 
-            <div id="hours" class="numbers"> </div>hours</div> 
+            <div id="hours" class="numbers"> </div>годин</div> 
         <div class="minutes seconds"> 
-            <div id="minutes" class="numbers"> </div>minutes</div> 
+            <div id="minutes" class="numbers"> </div>хвилин</div> 
         <div class="seconds seconds"> 
-            <div id="seconds" class="numbers"> </div>seconds</div> 
+            <div id="seconds" class="numbers"> </div>секунд</div> 
     </div>
 </body>
 <script>
@@ -105,11 +102,8 @@
         // stop timer if date has passed
         if (diff < 0) {
             clearInterval(timer);
-            document.getElementById("timer").innerHTML = "EXPIRED";
+            document.getElementById("timer").innerHTML = "ЗАВЕРШЕНО";
         }
     }, 1000); // 1000 milliseconds = 1 second
 </script>
 </html>
-```
-
-Зміни відображення кольорів у блоках днів, годин і хвилин були внесені у CSS частині коду.
