@@ -79,9 +79,25 @@
     </div>
 </body>
 <script>
-    const year = new Date().getFullYear();
-    const myDate = new Date('Oct 15, 2024 00:00:00');
-    console.log(myDate);
+    let myDate = new Date(); // Початкова дата
+    updateNextMonth(); // Оновлення дати на початок наступного місяця
+
+    function updateNextMonth() {
+        // Отримати поточний місяць
+        let currentMonth = myDate.getMonth();
+        
+        // Знайти наступний місяць
+        let nextMonth = (currentMonth + 1) % 12;
+
+        // Якщо наступний місяць - січень, збільшити рік
+        if (nextMonth === 0) {
+            myDate.setFullYear(myDate.getFullYear() + 1);
+        }
+
+        // Встановити наступний місяць та перше число
+        myDate.setMonth(nextMonth, 1);
+        myDate.setHours(0, 0, 0, 0); // Скинути години, хвилини, секунди і мілісекунди до 0
+    }
 
     // countdown
     let timer = setInterval(function() {
@@ -105,8 +121,8 @@
 
         // stop timer if date has passed
         if (diff < 0) {
-            clearInterval(timer);
-            document.getElementById("timer").innerHTML = "ЗАВЕРШЕНО";
+            // Оновити дату на початок наступного місяця
+            updateNextMonth();
         }
     }, 1000); // 1000 milliseconds = 1 second
 </script>
