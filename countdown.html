@@ -7,8 +7,8 @@
     <title>Document</title>
     <style>
         body {
-            margin: 0; /* Видаляє відступи по замовчуванню */
-            font-family: 'Lato', sans-serif; /* Застосовує шрифт до всього тексту */
+            margin: 0;
+            font-family: 'Lato', sans-serif;
         }
 
         #timer {
@@ -24,12 +24,12 @@
             padding: 20px;
             width: 100px;
             border-radius: 5px;
-            background: #F0A202; /* Колір, який вибрали для секунд */
+            background: #F0A202;
         }
 
         .numbers {
             font-family: 'Montserrat', sans-serif;
-            color: #183059;
+            color: black; /* Змінено на чорний колір */
             font-size: 4em;
             text-align: center;
         }
@@ -88,22 +88,4 @@
         const diff = myDate - today;
 
         // math
-        let days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        let seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-        // display
-        document.getElementById("days").innerHTML = days;
-        document.getElementById("hours").innerHTML = hours;
-        document.getElementById("minutes").innerHTML = minutes;
-        document.getElementById("seconds").innerHTML = seconds;
-
-        // stop timer if date has passed
-        if (diff < 0) {
-            clearInterval(timer);
-            document.getElementById("timer").innerHTML = "ЗАВЕРШЕНО";
-        }
-    }, 1000); // 1000 milliseconds = 1 second
-</script>
-</html>
+        let days = Math.floor(diff / (1000 * 60 * 60 * 24))
