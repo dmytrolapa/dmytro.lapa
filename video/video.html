@@ -9,42 +9,37 @@
     width: 100%;
     height: auto;
   }
+
+  @media (min-width: 768px) {
+    video {
+      width: 70%;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    video {
+      width: 50%;
+    }
+  }
 </style>
 </head>
 <body>
-<video id="myVideo" poster="photo.jpg">
+<video id="myVideo" poster="photo.jpg" controls>
   <source src="video.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
-<button id="playButton">Play</button>
-<button id="stopButton">Stop</button>
-<input type="range" id="volumeControl" min="0" max="1" step="0.1" value="1">
 
 <script>
   var video = document.getElementById('myVideo');
-  var playButton = document.getElementById('playButton');
-  var stopButton = document.getElementById('stopButton');
-  var volumeControl = document.getElementById('volumeControl');
-
-  playButton.addEventListener('click', function() {
-    video.play();
-  });
-
-  stopButton.addEventListener('click', function() {
-    video.pause();
-    video.currentTime = 0;
-    video.poster = 'photo.jpg';
-  });
-
-  volumeControl.addEventListener('input', function() {
-    video.volume = volumeControl.value;
-  });
 
   video.addEventListener('ended', function() {
+    video.currentTime = 0;
+    video.pause();
     video.poster = 'photo.jpg';
   });
 
   video.removeAttribute('autoplay');
+  video.removeAttribute('controlsList');
 </script>
 </body>
 </html>
