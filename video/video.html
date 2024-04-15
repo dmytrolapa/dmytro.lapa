@@ -19,10 +19,18 @@
 
 <script>
   var video = document.getElementById("myVideo");
+  var videoEnded = false;
+
   video.addEventListener("ended", function() {
-    video.currentTime = video.duration - 0.01; // встановлення часу перед закінченням відео
+    videoEnded = true;
     video.pause();
-    video.poster = "photo.jpg"; // зміна обкладинки після завершення відтворення
+  });
+
+  video.addEventListener("play", function() {
+    if (videoEnded) {
+      videoEnded = false;
+      video.poster = "photo.jpg";
+    }
   });
 </script>
 </body>
