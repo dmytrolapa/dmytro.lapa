@@ -20,15 +20,9 @@
 <script>
   var video = document.getElementById('myVideo');
 
-  video.addEventListener('play', function() {
-    if (video.currentTime > 0 && !video.paused && !video.ended
-        && video.readyState > 2) {
-      video.currentTime = 0;
-      video.pause();
-    }
-  });
-
   video.addEventListener('ended', function() {
+    video.currentTime = 0;
+    video.pause();
     video.poster = 'photo.jpg';
   });
 
