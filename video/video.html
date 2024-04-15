@@ -19,14 +19,17 @@
 
 <script>
   var video = document.getElementById("myVideo");
-  var videoEnded = false;
+  var changePosterTimeout;
 
-  video.addEventListener("timeupdate", function() {
-    if (!videoEnded && video.currentTime >= video.duration - 0) {
-      video.pause();
+  video.addEventListener("ended", function() {
+    video.pause();
+    changePosterTimeout = setTimeout(function() {
       video.poster = "photo.jpg";
-      videoEnded = true;
-    }
+    }, 500); // затримка в мілісекундах перед зміною обкладинки
+  });
+
+  video.addEventListener("play", function() {
+    clearTimeout(changePosterTimeout);
   });
 </script>
 </body>
