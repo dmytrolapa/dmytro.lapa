@@ -5,57 +5,41 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Embedded Video</title>
 <style>
-  body {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-  }
-
-  #video-container {
-    width: 100vw;
-    height: calc(100vw * 9 / 16); /* 9/16 aspect ratio */
-    max-width: 100%;
-    max-height: calc(100vh - 10px); /* Account for some margin */
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
-  }
-
   video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: auto;
+    height: auto;
+  }
+
+  @media (min-width: 768px) {
+    video {
+      width: 70%;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    video {
+      width: 50%;
+    }
   }
 </style>
 </head>
 <body>
-<div id="video-container">
-  <video id="myVideo" poster="photo.jpg" controls>
-    <source src="video.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-</div>
+<video id="myVideo" poster="photo.jpg" controls>
+  <source src="video.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 <script>
-  var videoContainer = document.getElementById('video-container');
   var video = document.getElementById('myVideo');
 
-  function resizeVideo() {
-    var aspectRatio = 9 / 16;
-    var containerWidth = videoContainer.clientWidth;
-    var containerHeight = videoContainer.clientHeight;
+  video.addEventListener('ended', function() {
+    video.currentTime = 0;
+    video.pause();
+    video.poster = 'photo.jpg';
+  });
 
-    if (containerWidth / aspectRatio > containerHeight) {
-      video.style.width = '100%';
-      video.style.height = 'auto';
-    } else {
-      video.style.width = 'auto';
-      video.style.height = '100%';
-    }
-  }
-
-  window.addEventListener('resize', resizeVideo);
-  resizeVideo();
+  video.removeAttribute('autoplay');
+  video.removeAttribute('controlsList');
 </script>
 </body>
 </html>
