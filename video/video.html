@@ -22,7 +22,7 @@
   var videoEnded = false;
 
   video.addEventListener("timeupdate", function() {
-    if (!videoEnded && video.currentTime >= video.duration - 0.01) {
+    if (!videoEnded && video.currentTime >= video.duration - 0) {
       video.pause();
       video.poster = "photo.jpg";
       videoEnded = true;
