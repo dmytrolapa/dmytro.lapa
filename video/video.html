@@ -12,7 +12,7 @@
 </style>
 </head>
 <body>
-<video id="myVideo" poster="cover.jpg">
+<video id="myVideo" poster="photo.jpg">
   <source src="video.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
@@ -33,7 +33,7 @@
   stopButton.addEventListener('click', function() {
     video.pause();
     video.currentTime = 0;
-    video.poster = 'cover.jpg';
+    video.poster = 'photo.jpg';
   });
 
   volumeControl.addEventListener('input', function() {
@@ -41,7 +41,7 @@
   });
 
   video.addEventListener('ended', function() {
-    video.poster = 'cover.jpg';
+    video.poster = 'photo.jpg';
   });
 
   video.removeAttribute('autoplay');
