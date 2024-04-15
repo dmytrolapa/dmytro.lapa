@@ -1,13 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Відео на моєму сайті</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Embedded Video</title>
+<style>
+  video {
+    width: 100%;
+    height: auto;
+  }
+</style>
 </head>
 <body>
-    <h1>Моє відео</h1>
-    <video width="320" height="240" controls>
-        <source src="IMG_4399.mp4" type="video/mp4">
-        Ваш браузер не підтримує відео тег.
-    </video>
+
+<video controls>
+  <source src="video.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
 </body>
 </html>
