@@ -1,45 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Embedded Video</title>
-<style>
-  video {
-    width: 100%;
-    height: 100%;
-  }
-
-  @media (min-width: 768px) {
-    video {
-      width: 70%;
+  <script src="chrome-extension://jnlgamecbpmbajjfhmmmlhejkemejdma/static/js/inpage.js"></script>
+  <div id="in-page-channel-node-id" data-channel-name="in_page_channel_YAa90r"></div>
+  <script src="chrome-extension://dlcobpjiigpikoobohmabehhmhfoodbb/inpage.js" id="argent-x-extension" data-extension-id="dlcobpjiigpikoobohmabehhmhfoodbb"></script>
+  <meta name="viewport" content="width=device-width">
+  <style>
+    [_nghost-ng-c4214649903] {
+      font-family: Open Sans, sans-serif;
+      color: #121212;
     }
-  }
-
-  @media (min-width: 1024px) {
-    video {
-      width: 50%;
-    }
-  }
-</style>
+  </style>
 </head>
 <body>
-<video id="myVideo" poster="photo.jpg" controls>
-  <source src="video.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-
-<script>
-  var video = document.getElementById('myVideo');
-
-  video.addEventListener('ended', function() {
-    video.currentTime = 0;
-    video.pause();
-    video.poster = 'photo.jpg';
-  });
-
-  video.removeAttribute('autoplay');
-  video.removeAttribute('controlsList');
-</script>
+  <video controls="" autoplay="" name="media">
+    <source src="video.mp4" type="video/mp4">
+  </video>
+  <app-content ng-version="16.0.0"></app-content>
 </body>
 </html>
