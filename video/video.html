@@ -12,16 +12,16 @@
 </style>
 </head>
 <body>
-<video id="myVideo" controls autoplay name="media" poster="photo.jpg">
+<video id="myVideo" controls name="media" poster="photo.jpg">
   <source src="video.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
 <script>
   var video = document.getElementById("myVideo");
-  video.onended = function() {
-    video.poster = "https://photo.jpg";
-  };
+  video.addEventListener("ended", function() {
+    video.poster = "photo.jpg";
+  });
 </script>
 </body>
 </html>
