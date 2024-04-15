@@ -17,14 +17,16 @@
             text-transform: uppercase;
             font-size: .7em;
             letter-spacing: 5px;
+            display: flex; /* Змінено на flex */
+            justify-content: center; /* Центрування елементів по горизонталі */
         }
 
         .days, .hours, .minutes, .seconds {
-            display: inline-block;
             padding: 2vw; /* Змінено на вьюпорти */
             width: 30%; /* Змінено на відсотки */
             border-radius: 5px;
             background: #F0A202;
+            margin: 0 10px; /* Додано відступи між блоками */
         }
 
         .numbers {
