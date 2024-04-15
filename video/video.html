@@ -19,17 +19,18 @@
 
 <script>
   var video = document.getElementById("myVideo");
-  var changePosterTimeout;
+  var ended = false;
 
-  video.addEventListener("ended", function() {
-    video.pause();
-    changePosterTimeout = setTimeout(function() {
+  video.addEventListener("timeupdate", function() {
+    if (!ended && video.currentTime >= video.duration - 0.01) {
+      ended = true;
+      video.pause();
       video.poster = "photo.jpg";
-    }, 500); // затримка в мілісекундах перед зміною обкладинки
-  });
-
-  video.addEventListener("play", function() {
-    clearTimeout(changePosterTimeout);
+      setTimeout(function() {
+        video.currentTime = 0;
+        video.play();
+      }, 2000); // Затримка в 2 секунди перед відтворенням з початку
+    }
   });
 </script>
 </body>
