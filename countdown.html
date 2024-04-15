@@ -76,6 +76,11 @@
             .numbers {
                 font-size: 3vw; /* Зменшено розмір шрифту для чисел */
             }
+
+            /* Додано стиль для зменшення розміру написів */
+            .days, .hours, .minutes, .seconds {
+                font-size: 1.5vw; /* Зменшено розмір шрифту для написів */
+            }
         }
     </style>
 </head>
@@ -94,6 +99,7 @@
 <script>
     let myDate = new Date(); // Початкова дата
     updateNextMonth(); // Оновлення дати на початок наступного місяця
+    const interval = 1000; // Інтервал оновлення в мілісекундах
 
     function updateNextMonth() {
         // Отримати поточний місяць
@@ -137,6 +143,6 @@
             // Оновити дату на початок наступного місяця
             updateNextMonth();
         }
-    }, 1000); // 1000 milliseconds = 1 second
+    }, interval); // 1000 milliseconds = 1 second
 </script>
 </html>
