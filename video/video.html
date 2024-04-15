@@ -12,21 +12,28 @@
 </style>
 </head>
 <body>
-<video controls name="media" poster="photo.jpg">
+<video id="myVideo" poster="photo.jpg" controls>
   <source src="video.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
 <script>
-  const video = document.querySelector('video');
-  
-  video.addEventListener('ended', function() {
-    this.currentTime = 0;
-    this.poster = 'cover.jpg';
+  var video = document.getElementById('myVideo');
+
+  video.addEventListener('play', function() {
+    if (video.currentTime > 0 && !video.paused && !video.ended
+        && video.readyState > 2) {
+      video.currentTime = 0;
+      video.pause();
+    }
   });
-  
+
+  video.addEventListener('ended', function() {
+    video.poster = 'photo.jpg';
+  });
+
   video.removeAttribute('autoplay');
-  video.removeAttribute('controls');
+  video.removeAttribute('controlsList');
 </script>
 </body>
 </html>
