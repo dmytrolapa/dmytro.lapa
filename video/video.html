@@ -21,15 +21,11 @@
   var video = document.getElementById("myVideo");
   var videoEnded = false;
 
-  video.addEventListener("ended", function() {
-    videoEnded = true;
-    video.pause();
-  });
-
-  video.addEventListener("play", function() {
-    if (videoEnded) {
-      videoEnded = false;
+  video.addEventListener("timeupdate", function() {
+    if (!videoEnded && video.currentTime >= video.duration - 0.01) {
+      video.pause();
       video.poster = "photo.jpg";
+      videoEnded = true;
     }
   });
 </script>
