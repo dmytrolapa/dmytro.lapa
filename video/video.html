@@ -20,7 +20,7 @@
 <script>
   var video = document.getElementById("myVideo");
   video.addEventListener("ended", function() {
-    video.currentTime = 0;
+    video.currentTime = video.duration - 0.01; // встановлення часу перед закінченням відео
     video.pause();
     video.poster = "photo.jpg"; // зміна обкладинки після завершення відтворення
   });
