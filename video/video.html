@@ -1,8 +1,5 @@
 <html>
 <head>
-  <script src="chrome-extension://jnlgamecbpmbajjfhmmmlhejkemejdma/static/js/inpage.js"></script>
-  <div id="in-page-channel-node-id" data-channel-name="in_page_channel_YAa90r"></div>
-  <script src="chrome-extension://dlcobpjiigpikoobohmabehhmhfoodbb/inpage.js" id="argent-x-extension" data-extension-id="dlcobpjiigpikoobohmabehhmhfoodbb"></script>
   <meta name="viewport" content="width=device-width">
   <style>
     [_nghost-ng-c4214649903] {
@@ -13,12 +10,26 @@
       width: 100%;
       height: auto;
     }
+    .video-container {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio (висота/ширина * 100) */
+    }
+    .video-container video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
   </style>
 </head>
 <body>
-  <video controls="" autoplay="" name="media">
-    <source src="video.mp4" type="video/mp4">
-  </video>
+  <div class="video-container">
+    <video controls="" autoplay="" name="media">
+      <source src="video.mp4" type="video/mp4">
+    </video>
+  </div>
   <app-content ng-version="16.0.0"></app-content>
 </body>
 </html>
