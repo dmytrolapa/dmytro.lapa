@@ -2,13 +2,14 @@
 <html lang="en">
 
 <head>
+  <link href="https://fonts.googleapis.com/css2?family=Mono:wght@400;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
   <style>
     :root {
-      --my-color:#f0a100;
-      --my-color-accent:#ab7302;
+      --my-color: #f0a100;
+      --my-color-accent: #ab7302;
       --black: #3c3c3c;
       --black-accent: #2d2d2d;
       --blue: #809bce;
@@ -21,12 +22,12 @@
       --pink-accent: #b495a3;
       --green: #74a892;
       --green-accent: #5e8675;
-      --red:#d74a49;
-      --red-accent:#b53f3f;
-      --orange:#d35400;
-      --orange-accent:#9e4102;
-      --yellow:#f1c40f;
-      --yellow-accent:#bd9a0c;
+      --red: #d74a49;
+      --red-accent: #b53f3f;
+      --orange: #d35400;
+      --orange-accent: #9e4102;
+      --yellow: #f1c40f;
+      --yellow-accent: #bd9a0c;
     }
 
     button {
@@ -46,7 +47,7 @@
     .btn {
       text-align: center;
       color: #ffffff;
-      font-family: 'Mono';
+      font-family: 'Mono', monospace;
       display: inline-block;
       margin: 10px;
     }
@@ -67,6 +68,7 @@
       box-shadow: 0 0;
       background-color: var(--my-color-accent);
     }
+
     .black {
       background-color: var(--black);
     }
@@ -245,7 +247,7 @@
 <body>
 
   <button class="btn large my-color rounded" type="button" onclick="navigate()">Купити</button>
-  
+
   <script>
     function navigate() {
       window.open("https://www.shop.tokenomika.school/shop/baza/#", '_blank').focus();
